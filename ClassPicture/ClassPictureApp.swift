@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ClassPictureApp: App {
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().preferredColorScheme(.light)
         }
     }
 }

@@ -14,6 +14,16 @@
 		6E979B762BA0B41C0005604A /* ClassPictureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B752BA0B41C0005604A /* ClassPictureTests.swift */; };
 		6E979B802BA0B41C0005604A /* ClassPictureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B7F2BA0B41C0005604A /* ClassPictureUITests.swift */; };
 		6E979B822BA0B41C0005604A /* ClassPictureUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B812BA0B41C0005604A /* ClassPictureUITestsLaunchTests.swift */; };
+		6E979B8F2BA0B4500005604A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B8E2BA0B4500005604A /* AccountView.swift */; };
+		6E979B912BA0B4710005604A /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B902BA0B4710005604A /* Color+Extension.swift */; };
+		6E979B932BA0B4970005604A /* LessonAddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B922BA0B4970005604A /* LessonAddSchedule.swift */; };
+		6E979B952BA0B4B50005604A /* LessonPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B942BA0B4B50005604A /* LessonPicture.swift */; };
+		6E979B972BA0B4DE0005604A /* LessonSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B962BA0B4DE0005604A /* LessonSchedule.swift */; };
+		6E979B992BA0B4F80005604A /* LessonScheduleMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B982BA0B4F80005604A /* LessonScheduleMainView.swift */; };
+		6E979B9B2BA0B5000005604A /* LessonTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B9A2BA0B5000005604A /* LessonTime.swift */; };
+		6E979B9D2BA0B50F0005604A /* mainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B9C2BA0B50F0005604A /* mainPage.swift */; };
+		6E979B9F2BA0B5170005604A /* ModelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979B9E2BA0B5170005604A /* ModelListView.swift */; };
+		6E979BA12BA0B5220005604A /* TableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E979BA02BA0B5220005604A /* TableModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +54,16 @@
 		6E979B7B2BA0B41C0005604A /* ClassPictureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassPictureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E979B7F2BA0B41C0005604A /* ClassPictureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassPictureUITests.swift; sourceTree = "<group>"; };
 		6E979B812BA0B41C0005604A /* ClassPictureUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassPictureUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6E979B8E2BA0B4500005604A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		6E979B902BA0B4710005604A /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		6E979B922BA0B4970005604A /* LessonAddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonAddSchedule.swift; sourceTree = "<group>"; };
+		6E979B942BA0B4B50005604A /* LessonPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPicture.swift; sourceTree = "<group>"; };
+		6E979B962BA0B4DE0005604A /* LessonSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSchedule.swift; sourceTree = "<group>"; };
+		6E979B982BA0B4F80005604A /* LessonScheduleMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonScheduleMainView.swift; sourceTree = "<group>"; };
+		6E979B9A2BA0B5000005604A /* LessonTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTime.swift; sourceTree = "<group>"; };
+		6E979B9C2BA0B50F0005604A /* mainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPage.swift; sourceTree = "<group>"; };
+		6E979B9E2BA0B5170005604A /* ModelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelListView.swift; sourceTree = "<group>"; };
+		6E979BA02BA0B5220005604A /* TableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +114,18 @@
 		6E979B632BA0B4190005604A /* ClassPicture */ = {
 			isa = PBXGroup;
 			children = (
+				6E979B9C2BA0B50F0005604A /* mainPage.swift */,
 				6E979B642BA0B4190005604A /* ClassPictureApp.swift */,
 				6E979B662BA0B4190005604A /* ContentView.swift */,
+				6E979B8E2BA0B4500005604A /* AccountView.swift */,
+				6E979B902BA0B4710005604A /* Color+Extension.swift */,
+				6E979B922BA0B4970005604A /* LessonAddSchedule.swift */,
+				6E979B942BA0B4B50005604A /* LessonPicture.swift */,
+				6E979B962BA0B4DE0005604A /* LessonSchedule.swift */,
+				6E979B982BA0B4F80005604A /* LessonScheduleMainView.swift */,
+				6E979B9A2BA0B5000005604A /* LessonTime.swift */,
+				6E979B9E2BA0B5170005604A /* ModelListView.swift */,
+				6E979BA02BA0B5220005604A /* TableModel.swift */,
 				6E979B682BA0B41C0005604A /* Assets.xcassets */,
 				6E979B6A2BA0B41C0005604A /* Preview Content */,
 			);
@@ -257,8 +287,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E979B992BA0B4F80005604A /* LessonScheduleMainView.swift in Sources */,
+				6E979B972BA0B4DE0005604A /* LessonSchedule.swift in Sources */,
+				6E979B8F2BA0B4500005604A /* AccountView.swift in Sources */,
+				6E979B9B2BA0B5000005604A /* LessonTime.swift in Sources */,
 				6E979B672BA0B4190005604A /* ContentView.swift in Sources */,
+				6E979B9F2BA0B5170005604A /* ModelListView.swift in Sources */,
+				6E979B9D2BA0B50F0005604A /* mainPage.swift in Sources */,
+				6E979B952BA0B4B50005604A /* LessonPicture.swift in Sources */,
+				6E979BA12BA0B5220005604A /* TableModel.swift in Sources */,
 				6E979B652BA0B4190005604A /* ClassPictureApp.swift in Sources */,
+				6E979B912BA0B4710005604A /* Color+Extension.swift in Sources */,
+				6E979B932BA0B4970005604A /* LessonAddSchedule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +475,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = taskiran.ClassPicture;
+				PRODUCT_BUNDLE_IDENTIFIER = taskiran.classChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -464,7 +504,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = taskiran.ClassPicture;
+				PRODUCT_BUNDLE_IDENTIFIER = taskiran.classChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
