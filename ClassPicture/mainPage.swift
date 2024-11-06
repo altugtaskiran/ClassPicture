@@ -15,7 +15,7 @@ struct mainPage: View {
     @State private var isFirstItemClicked = false
     @State private var showList = false
     @State var AccountViewShow = false
-    @State private var modelList = ModelList // ModelList'i state özniteliği olarak tanımlamak lazmmış
+    @State private var modelList = ModelList // ModelList'i state özniteliği olarak tanımlamak gerekli.
     @StateObject private var cameraManager = CameraManager()
     @State private var currentTime = Date()
     
