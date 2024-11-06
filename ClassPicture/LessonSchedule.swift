@@ -6,7 +6,7 @@ struct LessonSchedule: View {
     @State private var lessons = LessonAddManager.shared.fetchLessons()
     @State private var selectedDayIndex = 0
     
-    var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     
     
     var body: some View {
@@ -15,14 +15,14 @@ struct LessonSchedule: View {
         VStack {
             HStack{
                 Image(systemName: "arrow.uturn.backward")
+                    .resizable()
+                    .frame(width: 20, height: 20)
                     .foregroundColor(.black)
                     .onTapGesture {
                         showHome.toggle()}
                     .fullScreenCover(isPresented:$showHome){
                         ContentView()
-                    }
-                    .offset(x: 5)
-                
+                    }.offset(x:5)
                 Spacer()
             }.padding()
             

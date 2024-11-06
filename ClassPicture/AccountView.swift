@@ -11,10 +11,11 @@ struct AccountView: View {
     @State var AccountViewShow = false
     
     var body: some View {
-        Text("hello.anil")
         VStack{
             HStack{
                 Image(systemName: "arrow.uturn.backward")
+                    .resizable()
+                    .frame(width: 20, height: 20)
                     .offset(x: 5)
                     .foregroundColor(.black)
                     .onTapGesture {
@@ -24,8 +25,7 @@ struct AccountView: View {
                     }
                
                 Spacer()
-                Image(systemName: "house")
-                    .foregroundColor(.black)
+
                     
             }.padding()
             

@@ -7,51 +7,17 @@
 
 import SwiftUI
 
-struct Lesson: Codable, Hashable {
+struct Lesson: Identifiable,Codable, Hashable {
     var id = UUID()
     var name: String
     var day: String
     var startTime: String
     var endTime: String
     var isActive: Bool
+    var images: [String]
 }
 
 
-class LessonAddManager {
-    static let shared = LessonAddManager()
-    private let key = "lessons"
-    
-    
-    func saveLesson(_ lesson: Lesson){
-        var lessons = fetchLessons()
-        lessons.append(lesson)
-        
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(lessons){
-            UserDefaults.standard.set(encoded, forKey: key)
-        }
-    }
-    
-    func fetchLessons() -> [Lesson] {
-        let decoder = JSONDecoder()
-        if let data = UserDefaults.standard.data(forKey: key),
-           let lessons = try? decoder.decode([Lesson].self, from: data) {
-            return lessons
-        }
-        return []
-    }
-    
-    func deleteLesson(_ lesson: Lesson) {
-        var lessons = fetchLessons()
-        if let index = lessons.firstIndex(where: { $0.id == lesson.id }) {
-            lessons.remove(at: index)
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(lessons) {
-                UserDefaults.standard.set(encoded, forKey: key)
-            }
-        }
-    }
-}
 
 struct LessonAddSchedule: View {
     
@@ -63,17 +29,15 @@ struct LessonAddSchedule: View {
     @State private var endTime = Date()
     @State var showHome = false
     @State private var lessonName = ""
-    @State private var fileContent = ""
-    @State private var isFileCreated = false
-
-
+    @State private var showLessonPicture = false
     
     let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
+    
     var todayLessons: [Lesson] {
         getTodayLesson()}
     
     var body: some View {
+        
         
         if saveClicked {
             LessonScheduleMainView()
@@ -81,9 +45,12 @@ struct LessonAddSchedule: View {
                     LessonScheduleMainView()
                 }
         }
+        
         VStack{
             HStack{
                 Image(systemName: "arrow.uturn.backward")
+                    .resizable()
+                    .frame(width: 20, height: 20)
                     .foregroundColor(.black)
                     .onTapGesture {
                         showHome.toggle()}
@@ -91,58 +58,68 @@ struct LessonAddSchedule: View {
                         ContentView()
                     }
                     .offset(x: 5)
-               
+                
                 Spacer()
             }.padding()
             
-           
             
             
-                VStack {
-                   Text("Lesson Name")
+            
+            VStack {
+                Text("Lesson Name")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                TextField("Lesson Name", text: $lessonName)
+                    .frame(height: 50)
+                    .multilineTextAlignment(.center)
+                    .background(Color.black.opacity(0.1))
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                
+                
+                
+                HStack{
+                    Text("Day:")
+                        .foregroundColor(.black)
                         .font(.headline)
-                    TextField("Lesson Name", text: $lessonName)
-                            .frame(height: 50)
-                            .multilineTextAlignment(.center)
-                            .background(Color.black.opacity(0.1))
-                            .cornerRadius(15)
-                            
+                    Picker("Day", selection: $selectedDayIndex) {
+                        ForEach(daysOfWeek.indices, id: \.self, content: { index in
+                            Text(self.daysOfWeek[index])
+                        }
+                        )}.pickerStyle(MenuPickerStyle())
+                        .foregroundColor(.black)
                     
-                    HStack{
-                        Text("Day:")
-                            .font(.headline)
-                        Picker("Day", selection: $selectedDayIndex) {
-                            ForEach(daysOfWeek.indices, id: \.self, content: { index in
-                                Text(self.daysOfWeek[index])
-                            }
-                            )}.pickerStyle(MenuPickerStyle())
-                            
-                    }
                     
-                   
-                        DatePicker("Start Time: ", selection: $startTime, displayedComponents: .hourAndMinute).font(.headline)
-                        
-                        
-                        //TextField("Hour", text: $startTime)
-                        //  .multilineTextAlignment(.center)
-                        //.frame(height: 50)
-                        
-                 
-                        DatePicker("End Time: ", selection: $endTime, displayedComponents: .hourAndMinute).font(.headline)
-                    HStack{
-                        Button("Save"){
-                            saveLesson()
-                            saveClicked.toggle()
-                        }.bold()
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(15)
-                            .background(Color(hex: "#1e90ff"))
-                            .cornerRadius(15)
-                    }
                 }
-                .padding(.horizontal).padding(.top, 80)
+                
+                
+                DatePicker("Start Time: ", selection: $startTime, displayedComponents: .hourAndMinute).font(.headline)
+                    .foregroundColor(.black)
+                
+                
+                
+                //TextField("Hour", text: $startTime)
+                //  .multilineTextAlignment(.center)
+                //.frame(height: 50)
+                
+                
+                DatePicker("End Time: ", selection: $endTime, displayedComponents: .hourAndMinute).font(.headline)
+                    .foregroundColor(.black)
+                
+                HStack{
+                    Button("Save"){
+                        saveLesson()
+                        saveClicked.toggle()
+                    }.bold()
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(15)
+                        .background(Color(hex: "#1e90ff"))
+                        .cornerRadius(15)
+                }
+            }
+            .padding(.horizontal).padding(.top, 80)
             
             
             Spacer()
@@ -174,12 +151,11 @@ struct LessonAddSchedule: View {
     
     func saveLesson() {
         _ = daysOfWeek[selectedDayIndex]
-        let lesson = Lesson(name: lessonName, day: daysOfWeek[selectedDayIndex], startTime: timeFormat(startTime), endTime: timeFormat(endTime), isActive: false)
+        let lesson = Lesson(name: lessonName, day: daysOfWeek[selectedDayIndex], startTime: timeFormat(startTime), endTime: timeFormat(endTime), isActive: false, images: ["images"])
         LessonAddManager.shared.saveLesson(lesson)
-
-    
+        
+        
     }
-    
     
 }
 

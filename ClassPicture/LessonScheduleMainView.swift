@@ -11,6 +11,8 @@ struct LessonScheduleMainView: View {
         VStack{
             HStack{
                 Image(systemName: "arrow.uturn.backward")
+                    .resizable()
+                    .frame(width: 20, height: 20)
                     .foregroundColor(.black)
                     .onTapGesture {
                         showHome.toggle()}
@@ -22,6 +24,7 @@ struct LessonScheduleMainView: View {
                 Spacer()
                 
                 Text("Add Lesson")
+                    .frame(width: 100, height: 50)
                     .foregroundColor(.black)
                     .onTapGesture {
                         addLessonSchedule.toggle()}
@@ -33,6 +36,11 @@ struct LessonScheduleMainView: View {
                     .background(Color.white)
                     .clipShape(Circle())
                     .font(.title)
+                    .onTapGesture {
+                        addLessonSchedule.toggle()}
+                    .fullScreenCover(isPresented:$addLessonSchedule){
+                        LessonAddSchedule()
+                    }
                 
             }.padding()
             
@@ -51,12 +59,7 @@ struct LessonScheduleMainView: View {
                     }).foregroundColor(.blue)
                 }
             }
-            .navigationBarTitle("Lesson Schedule")
-            .navigationBarItems(trailing:
-                                    Button("Refresh", action: {
-                lessons = LessonAddManager.shared.fetchLessons()
-            })
-            )
+            
         }.background(Color.white)
     }
     }

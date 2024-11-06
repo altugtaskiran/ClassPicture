@@ -22,7 +22,7 @@ let ModelList = [
     Model(icon: "books.vertical", name:"Lesson Schedule"),
     Model(icon: "books.vertical.circle", name: "Add Lesson"),
     Model(icon: "folder.fill", name:"Lesson Pictures"),
-    Model(icon: "photo.badge.plus", name:"Add Pictures"),
+    
 
 ]
 
