@@ -110,7 +110,7 @@ struct mainPage: View {
                     }.zIndex(CGFloat(index * -1))
                         .padding(.top, 40)
                     
-                }   //forEach index close
+                }
                 .padding(.horizontal)
             }   //zstack
             

@@ -40,7 +40,7 @@ struct LessonPictureView: View {
 
       Spacer()
 
-      // Fotoğraf Ekle düğmesi
+      // Fotoğraf Ekle düğme kısmı
       Button(action: {
         // Görüntü seçme işlemini başlat
           let imagePicker = PHPickerViewController(configuration: .init())
@@ -86,7 +86,7 @@ struct LessonPictureView: View {
     }
   }
 
-  // Görüntüleri yüklemek için (seçilen görüntülerden veya placeholder'lar)
+  
   func loadImages() {
     images.removeAll() // Seçilen görüntüleri temizle
     if !selectedImages.isEmpty {
@@ -100,7 +100,7 @@ struct LessonPictureView: View {
   }
 }
 
-// Önizleme (gerçek verilerinizle veya test görüntü yükleme mantığınızla değiştirin)
+
 struct LessonPictureView_Previews: PreviewProvider {
     static var previews: some View {
         LessonPictureView(lesson: Lesson(name: "Ders Adı", day: "Gün", startTime: "Başlangıç Saati", endTime: "Bitiş Saati", isActive: true, images: []))
